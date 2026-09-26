@@ -20,11 +20,14 @@ jobs:
       - name: Install Wrangler
         run: npm install -g wrangler
 
+      - name: Build Project
+        run: npm run build
+
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages project create deep-bhavsar-portfolio --production-branch main || true
+          command: pages deploy dist --project-name deep1106-portfolio --branch main
           workingDirectory: .
           packageManager: npm

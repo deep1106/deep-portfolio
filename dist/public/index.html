@@ -1355,14 +1355,27 @@
         const cursor = document.querySelector('.cursor');
         const follower = document.querySelector('.cursor-follower');
 
+        // ⚡ Bolt: Cache mouse position and use requestAnimationFrame instead of spawning timeouts on every mousemove
+        let mouseX = -100;
+        let mouseY = -100;
+        let followerX = -100;
+        let followerY = -100;
+
         document.addEventListener('mousemove', (e) => {
-            cursor.style.left = e.clientX - 10 + 'px';
-            cursor.style.top = e.clientY - 10 + 'px';
-            setTimeout(() => {
-                follower.style.left = e.clientX - 4 + 'px';
-                follower.style.top = e.clientY - 4 + 'px';
-            }, 100);
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            cursor.style.left = mouseX - 10 + 'px';
+            cursor.style.top = mouseY - 10 + 'px';
         });
+
+        const updateFollower = () => {
+            followerX += (mouseX - followerX) * 0.15;
+            followerY += (mouseY - followerY) * 0.15;
+            follower.style.left = followerX - 4 + 'px';
+            follower.style.top = followerY - 4 + 'px';
+            requestAnimationFrame(updateFollower);
+        };
+        updateFollower();
 
         document.querySelectorAll('a, button, .project-card, .skill-item, .workflow-card').forEach(el => {
             el.addEventListener('mouseenter', () => cursor.classList.add('hover'));

@@ -1,3 +1,5 @@
 node_modules/
 .wrangler/
+HERMES_EXPORT.json
+
 

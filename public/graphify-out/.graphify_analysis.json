@@ -1,0 +1,114 @@
+{
+  "communities": {
+    "0": [
+      "ref_fs",
+      "ref_http",
+      "scripts_server",
+      "scripts_server_fs",
+      "scripts_server_http",
+      "scripts_server_mimetypes",
+      "scripts_server_path",
+      "scripts_server_rootdir",
+      "scripts_server_server"
+    ],
+    "1": [
+      "ref_path",
+      "scripts_build",
+      "scripts_build_copyrecursive",
+      "scripts_build_distdir",
+      "scripts_build_fs",
+      "scripts_build_path",
+      "scripts_build_publicindex",
+      "scripts_build_rootdir",
+      "scripts_build_rootindex"
+    ],
+    "2": [
+      "package",
+      "package_devdependencies",
+      "package_devdependencies_wrangler",
+      "package_name",
+      "package_private",
+      "package_version",
+      "ref_wrangler"
+    ],
+    "3": [
+      "functions_api_contact",
+      "functions_api_contact_onrequestget",
+      "functions_api_contact_onrequestoptions",
+      "functions_api_contact_onrequestpost"
+    ],
+    "4": [
+      "package_scripts",
+      "package_scripts_build",
+      "package_scripts_dev"
+    ],
+    "5": [
+      "public_js_main"
+    ]
+  },
+  "cohesion": {
+    "0": 0.2222222222222222,
+    "1": 0.2222222222222222,
+    "2": 0.2857142857142857,
+    "3": 0.5,
+    "4": 0.6666666666666666,
+    "5": 1.0
+  },
+  "gods": [
+    {
+      "id": "package_scripts",
+      "label": "scripts",
+      "degree": 3
+    },
+    {
+      "id": "scripts_build_copyrecursive",
+      "label": "copyRecursive()",
+      "degree": 3
+    },
+    {
+      "id": "package_private",
+      "label": "private",
+      "degree": 1
+    },
+    {
+      "id": "package_scripts_build",
+      "label": "build",
+      "degree": 1
+    },
+    {
+      "id": "package_scripts_dev",
+      "label": "dev",
+      "degree": 1
+    },
+    {
+      "id": "package_devdependencies_wrangler",
+      "label": "wrangler",
+      "degree": 1
+    },
+    {
+      "id": "ref_wrangler",
+      "label": "wrangler",
+      "degree": 1
+    },
+    {
+      "id": "scripts_build_fs",
+      "label": "fs",
+      "degree": 1
+    },
+    {
+      "id": "scripts_build_path",
+      "label": "path",
+      "degree": 1
+    },
+    {
+      "id": "scripts_build_rootdir",
+      "label": "rootDir",
+      "degree": 1
+    }
+  ],
+  "surprises": [],
+  "tokens": {
+    "input": 0,
+    "output": 0
+  }
+}

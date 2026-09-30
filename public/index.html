@@ -1024,6 +1024,218 @@
         @media (max-width: 968px) { .hero-visual { position: relative; top: auto; right: auto; width: min(82vw, 420px); margin: -18px auto 30px; z-index: 0; } }
         @media (max-width: 640px) { .hero-visual { width: min(94vw, 360px); margin-top: -4px; } .visual-label { font-size: 9px; } }
         @media (prefers-reduced-motion: reduce) { .hero-visual { opacity: .65; } }
+
+        /* Architecture & Graphify Section */
+        .architecture {
+            padding: 120px 60px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .graph-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 30px;
+            backdrop-filter: blur(12px);
+            transition: border-color 0.3s ease;
+            position: relative;
+        }
+
+        .graph-card:hover {
+            border-color: var(--border-hover);
+        }
+
+        .graph-toolbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 24px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 20px;
+        }
+
+        .graph-filters {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .graph-filter-btn {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            padding: 8px 16px;
+            border-radius: 100px;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .graph-filter-btn:hover, .graph-filter-btn.is-active {
+            background: var(--accent-primary);
+            color: var(--bg-primary);
+            border-color: var(--accent-primary);
+        }
+
+        .graph-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .graph-link-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 18px;
+            border-radius: 100px;
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+            background: rgba(199, 243, 107, 0.12);
+            color: var(--accent-primary);
+            border: 1px solid rgba(199, 243, 107, 0.25);
+            transition: all 0.25s ease;
+        }
+
+        .graph-link-btn.secondary {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-primary);
+            border-color: var(--border);
+        }
+
+        .graph-link-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(199, 243, 107, 0.15);
+        }
+
+        .graph-viewport {
+            position: relative;
+            width: 100%;
+            height: 480px;
+            background: rgba(3, 3, 3, 0.7);
+            border-radius: 14px;
+            border: 1px solid var(--border);
+            overflow: hidden;
+        }
+
+        #graphify-svg {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        .graph-node-group {
+            cursor: pointer;
+            transition: transform 0.2s ease, filter 0.2s ease;
+        }
+
+        .graph-node-group:hover circle {
+            stroke: #ffffff;
+            stroke-width: 2.5px;
+            filter: drop-shadow(0 0 10px var(--accent-primary));
+        }
+
+        .graph-edge-line {
+            stroke: rgba(255, 255, 255, 0.12);
+            stroke-width: 1.2px;
+            transition: stroke 0.3s ease, stroke-width 0.3s ease;
+        }
+
+        .graph-edge-line.highlighted {
+            stroke: var(--accent-primary);
+            stroke-dasharray: 4;
+            animation: dash 1s linear infinite;
+        }
+
+        @keyframes dash {
+            to { stroke-dashoffset: -8; }
+        }
+
+        .graph-details-overlay {
+            position: absolute;
+            bottom: 16px;
+            right: 16px;
+            width: min(320px, 90%);
+            background: rgba(17, 17, 20, 0.95);
+            border: 1px solid var(--accent-primary);
+            border-radius: 14px;
+            padding: 16px;
+            backdrop-filter: blur(16px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+            z-index: 10;
+            color: var(--text-primary);
+            transition: opacity 0.3s ease;
+        }
+
+        .details-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .details-badge {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 6px;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            background: var(--accent-primary);
+            color: var(--bg-primary);
+        }
+
+        .details-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 6px;
+            font-family: var(--font-mono);
+        }
+
+        .details-file {
+            font-size: 12px;
+            color: var(--text-secondary);
+            font-family: var(--font-mono);
+            word-break: break-all;
+        }
+
+        .graph-legend {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .legend-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .dot-api { background: #c7f36b; box-shadow: 0 0 8px rgba(199, 243, 107, 0.5); }
+        .dot-workflow { background: #e7b86b; box-shadow: 0 0 8px rgba(231, 184, 107, 0.5); }
+        .dot-build { background: #6366f1; box-shadow: 0 0 8px rgba(99, 102, 241, 0.5); }
+        .dot-frontend { background: #38bdf8; box-shadow: 0 0 8px rgba(56, 189, 248, 0.5); }
+
+        @media (max-width: 768px) {
+            .architecture { padding: 80px 24px; }
+            .graph-toolbar { flex-direction: column; align-items: flex-start; }
+            .graph-viewport { height: 380px; }
+        }
     </style>
 </head>
 <body>
@@ -1049,6 +1261,7 @@
             <li><a href="#about">About</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#workflows">Workflows</a></li>
+            <li><a href="#architecture">Architecture Graph</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
         <button class="command-trigger" type="button" aria-label="Open command palette"><span>Search</span><kbd>⌘K</kbd></button>
@@ -1279,6 +1492,59 @@
                     </div>
                     <h3 class="workflow-title">Catalog Management</h3>
                     <p class="workflow-desc">Complete catalog management system with automated updates, missing item detection, and image generation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Architecture & Knowledge Graph Section -->
+    <section class="architecture" id="architecture">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-tag">Graphify Knowledge Graph</div>
+                <h2 class="section-title">Codebase & Workflow <span class="gradient-text">Architecture</span></h2>
+                <p class="section-description">
+                    Interactive network graph generated via Graphify, mapping real AST nodes, Cloudflare API handlers, n8n automation workflows, and build systems.
+                </p>
+            </div>
+            
+            <div class="graph-card reveal">
+                <div class="graph-toolbar">
+                    <div class="graph-filters" role="group" aria-label="Filter graph nodes">
+                        <button class="graph-filter-btn is-active" type="button" data-graph-filter="all">All Nodes (33)</button>
+                        <button class="graph-filter-btn" type="button" data-graph-filter="api">API & Functions</button>
+                        <button class="graph-filter-btn" type="button" data-graph-filter="workflows">n8n Workflows</button>
+                        <button class="graph-filter-btn" type="button" data-graph-filter="scripts">Build & Scripts</button>
+                    </div>
+                    <div class="graph-actions">
+                        <a href="graph.html" target="_blank" class="graph-link-btn">
+                            <span>Open Full Interactive Explorer ↗</span>
+                        </a>
+                        <a href="graphify-out/GRAPH_CALLFLOW.html" target="_blank" class="graph-link-btn secondary">
+                            <span>Callflow Diagram ↗</span>
+                        </a>
+                        <a href="graphify-out/GRAPH_TREE.html" target="_blank" class="graph-link-btn secondary">
+                            <span>Tree Hierarchy ↗</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="graph-viewport">
+                    <svg id="graphify-svg" viewBox="0 0 900 500" preserveAspectRatio="xMidYMid meet"></svg>
+                    <div class="graph-details-overlay" id="graph-details" hidden>
+                        <div class="details-header">
+                            <span class="details-badge" id="details-community">Category</span>
+                        </div>
+                        <div class="details-title" id="details-title">Node Title</div>
+                        <div class="details-file" id="details-file">File: -</div>
+                    </div>
+                </div>
+
+                <div class="graph-legend">
+                    <div class="legend-item"><span class="legend-dot dot-api"></span> API & Cloudflare Functions</div>
+                    <div class="legend-item"><span class="legend-dot dot-workflow"></span> Shayona n8n Workflows</div>
+                    <div class="legend-item"><span class="legend-dot dot-build"></span> Build Scripts & Server</div>
+                    <div class="legend-item"><span class="legend-dot dot-frontend"></span> Frontend UI Scripts</div>
                 </div>
             </div>
         </div>
@@ -1589,6 +1855,181 @@
             const onPointer = event => { const box = visual.getBoundingClientRect(); pointerX = (event.clientX - box.left - box.width / 2) * .08; pointerY = (event.clientY - box.top - box.height / 2) * .08; };
             resize(); onScroll(); window.addEventListener('resize', resize); window.addEventListener('scroll', onScroll, { passive: true }); visual.addEventListener('pointermove', onPointer); visual.addEventListener('pointerleave', () => { pointerX = 0; pointerY = 0; });
             if (reduceMotion.matches) draw(0); else requestAnimationFrame(draw);
+        })();
+    </script>
+
+    <script>
+        // Graphify Interactive SVG Visualization Simulation
+        (() => {
+            const svg = document.querySelector('#graphify-svg');
+            const details = document.querySelector('#graph-details');
+            const titleEl = document.querySelector('#details-title');
+            const fileEl = document.querySelector('#details-file');
+            const commEl = document.querySelector('#details-community');
+            if (!svg) return;
+
+            const graphData = {
+                nodes: [
+                    { id: 'contact_ts', label: 'contact.ts', category: 'api', color: '#c7f36b', file: 'functions/api/contact.ts', comm: 'Cloudflare API' },
+                    { id: 'onRequestGet', label: 'onRequestGet()', category: 'api', color: '#c7f36b', file: 'functions/api/contact.ts:L1', comm: 'Handler' },
+                    { id: 'onRequestPost', label: 'onRequestPost()', category: 'api', color: '#c7f36b', file: 'functions/api/contact.ts:L16', comm: 'Handler' },
+                    { id: 'onRequestOptions', label: 'onRequestOptions()', category: 'api', color: '#c7f36b', file: 'functions/api/contact.ts:L77', comm: 'Handler' },
+                    { id: 'wf_doc_sari', label: 'Doc Creation Sari V2', category: 'workflows', color: '#e7b86b', file: 'shayona-workflows/Doc Creation Sari.json', comm: 'n8n Workflow' },
+                    { id: 'wf_ai_img', label: 'AI Image Generator', category: 'workflows', color: '#e7b86b', file: 'shayona-workflows/Missing Catalog Image.json', comm: 'n8n Workflow' },
+                    { id: 'wf_barcode', label: 'Barcode Extract to Sheets', category: 'workflows', color: '#e7b86b', file: 'shayona-workflows/Barcode Extract.json', comm: 'n8n Workflow' },
+                    { id: 'wf_catalog', label: 'Saree Catalog Final', category: 'workflows', color: '#e7b86b', file: 'shayona-workflows/Doc creation final.json', comm: 'n8n Workflow' },
+                    { id: 'build_js', label: 'build.js', category: 'scripts', color: '#6366f1', file: 'scripts/build.js', comm: 'Build Pipeline' },
+                    { id: 'copyRecursive', label: 'copyRecursive()', category: 'scripts', color: '#6366f1', file: 'scripts/build.js:L12', comm: 'Build Helper' },
+                    { id: 'server_js', label: 'server.js', category: 'scripts', color: '#6366f1', file: 'scripts/server.js', comm: 'Dev Server' },
+                    { id: 'main_js', label: 'main.js', category: 'frontend', color: '#38bdf8', file: 'public/js/main.js', comm: 'Frontend Logic' },
+                    { id: 'index_html', label: 'index.html', category: 'frontend', color: '#38bdf8', file: 'public/index.html', comm: 'Portfolio Core' },
+                    { id: 'package_json', label: 'package.json', category: 'scripts', color: '#6366f1', file: 'package.json', comm: 'Manifest' },
+                    { id: 'wrangler_toml', label: 'wrangler.toml', category: 'api', color: '#c7f36b', file: 'wrangler.toml', comm: 'Cloudflare Config' }
+                ],
+                edges: [
+                    { source: 'contact_ts', target: 'onRequestGet' },
+                    { source: 'contact_ts', target: 'onRequestPost' },
+                    { source: 'contact_ts', target: 'onRequestOptions' },
+                    { source: 'contact_ts', target: 'wrangler_toml' },
+                    { source: 'build_js', target: 'copyRecursive' },
+                    { source: 'build_js', target: 'package_json' },
+                    { source: 'server_js', target: 'index_html' },
+                    { source: 'index_html', target: 'main_js' },
+                    { source: 'index_html', target: 'contact_ts' },
+                    { source: 'wf_doc_sari', target: 'wf_catalog' },
+                    { source: 'wf_ai_img', target: 'wf_catalog' },
+                    { source: 'wf_barcode', target: 'wf_doc_sari' },
+                    { source: 'main_js', target: 'wf_doc_sari' }
+                ]
+            };
+
+            const coords = {
+                contact_ts: { x: 220, y: 160 },
+                onRequestGet: { x: 120, y: 100 },
+                onRequestPost: { x: 120, y: 220 },
+                onRequestOptions: { x: 120, y: 340 },
+                wrangler_toml: { x: 280, y: 70 },
+                wf_doc_sari: { x: 500, y: 140 },
+                wf_ai_img: { x: 520, y: 270 },
+                wf_barcode: { x: 380, y: 110 },
+                wf_catalog: { x: 680, y: 190 },
+                build_js: { x: 740, y: 370 },
+                copyRecursive: { x: 840, y: 410 },
+                server_js: { x: 620, y: 410 },
+                main_js: { x: 340, y: 370 },
+                index_html: { x: 440, y: 430 },
+                package_json: { x: 780, y: 280 }
+            };
+
+            let activeFilter = 'all';
+
+            const render = () => {
+                svg.innerHTML = '';
+
+                // Draw Edges
+                graphData.edges.forEach(edge => {
+                    const src = graphData.nodes.find(n => n.id === edge.source);
+                    const tgt = graphData.nodes.find(n => n.id === edge.target);
+                    if (!src || !tgt) return;
+
+                    const srcMatch = activeFilter === 'all' || src.category === activeFilter;
+                    const tgtMatch = activeFilter === 'all' || tgt.category === activeFilter;
+                    const opacity = (srcMatch && tgtMatch) ? 0.4 : 0.08;
+
+                    const p1 = coords[src.id];
+                    const p2 = coords[tgt.id];
+                    if (!p1 || !p2) return;
+
+                    const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+                    line.setAttribute('x1', p1.x);
+                    line.setAttribute('y1', p1.y);
+                    line.setAttribute('x2', p2.x);
+                    line.setAttribute('y2', p2.y);
+                    line.setAttribute('class', 'graph-edge-line');
+                    line.setAttribute('style', `stroke-opacity: ${opacity};`);
+                    line.dataset.source = src.id;
+                    line.dataset.target = tgt.id;
+                    svg.appendChild(line);
+                });
+
+                // Draw Nodes
+                graphData.nodes.forEach(node => {
+                    const pos = coords[node.id];
+                    if (!pos) return;
+
+                    const match = activeFilter === 'all' || node.category === activeFilter;
+                    const opacity = match ? 1 : 0.18;
+
+                    const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+                    g.setAttribute('class', 'graph-node-group');
+                    g.setAttribute('transform', `translate(${pos.x}, ${pos.y})`);
+                    g.setAttribute('style', `opacity: ${opacity}; transition: opacity 0.3s;`);
+
+                    // Outer pulse glow ring
+                    const ring = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+                    ring.setAttribute('r', '18');
+                    ring.setAttribute('fill', node.color);
+                    ring.setAttribute('fill-opacity', '0.15');
+                    g.appendChild(ring);
+
+                    // Core Node Circle
+                    const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+                    circle.setAttribute('r', '9');
+                    circle.setAttribute('fill', node.color);
+                    circle.setAttribute('stroke', '#08080a');
+                    circle.setAttribute('stroke-width', '2');
+                    g.appendChild(circle);
+
+                    // Label Text
+                    const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+                    text.setAttribute('x', '14');
+                    text.setAttribute('y', '4');
+                    text.setAttribute('fill', '#f5f5f7');
+                    text.setAttribute('font-size', '11');
+                    text.setAttribute('font-family', 'JetBrains Mono, monospace');
+                    text.textContent = node.label;
+                    g.appendChild(text);
+
+                    // Interactions
+                    g.addEventListener('mouseenter', () => {
+                        if (details) {
+                            details.hidden = false;
+                            titleEl.textContent = node.label;
+                            fileEl.textContent = node.file;
+                            commEl.textContent = node.comm;
+                            commEl.style.background = node.color;
+                        }
+                        // Highlight connected lines
+                        svg.querySelectorAll('.graph-edge-line').forEach(line => {
+                            if (line.dataset.source === node.id || line.dataset.target === node.id) {
+                                line.classList.add('highlighted');
+                                line.style.strokeOpacity = '1';
+                            }
+                        });
+                    });
+
+                    g.addEventListener('mouseleave', () => {
+                        svg.querySelectorAll('.graph-edge-line').forEach(line => {
+                            line.classList.remove('highlighted');
+                            line.style.strokeOpacity = '';
+                        });
+                    });
+
+                    svg.appendChild(g);
+                });
+            };
+
+            render();
+
+            // Filter buttons interaction
+            document.querySelectorAll('[data-graph-filter]').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    document.querySelectorAll('[data-graph-filter]').forEach(b => b.classList.remove('is-active'));
+                    btn.classList.add('is-active');
+                    activeFilter = btn.dataset.graphFilter;
+                    render();
+                });
+            });
         })();
     </script>
 </body>

@@ -39,6 +39,7 @@
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
+    <canvas class="ambient-particles" aria-hidden="true"></canvas>
     <header class="site-header">
       <a class="wordmark" href="#top"><span class="wordmark-mark">D<span>.</span></span><span class="wordmark-name">Deep Bhavsar</span></a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open navigation"><span></span><span></span></button>
@@ -81,6 +82,18 @@
             <text class="map-label" x="451" y="208" text-anchor="middle">IN USE</text>
             <text class="map-small" x="166" y="337" text-anchor="middle">LISTEN</text>
             <text class="map-small" x="398" y="337" text-anchor="middle">ITERATE</text>
+            <g class="growth-chart" aria-hidden="true">
+              <path class="growth-grid" d="M440 268h99M440 289h99M440 310h99"/>
+              <path class="growth-axis" d="M440 258v72h100"/>
+              <rect class="growth-bar bar-one" x="448" y="309" width="8" height="21" rx="2"/>
+              <rect class="growth-bar bar-two" x="464" y="299" width="8" height="31" rx="2"/>
+              <rect class="growth-bar bar-three" x="480" y="290" width="8" height="40" rx="2"/>
+              <rect class="growth-bar bar-four" x="496" y="278" width="8" height="52" rx="2"/>
+              <rect class="growth-bar bar-five" x="512" y="269" width="8" height="61" rx="2"/>
+              <rect class="growth-bar bar-six" x="528" y="257" width="8" height="73" rx="2"/>
+              <path class="growth-trend" d="m448 303 20-13 18-7 18-12 18-8 18-13"/>
+              <circle class="growth-point" cx="540" cy="250" r="3"/>
+            </g>
             <text class="map-note" x="280" y="386" text-anchor="middle">Stay close to the people using it.</text>
           </svg>
           <div class="art-caption"><span>01 / THE WORK</span><span>Build. Deploy. Learn.</span></div>

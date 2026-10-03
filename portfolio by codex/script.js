@@ -1,3 +1,91 @@
+const particleCanvas = document.querySelector('.ambient-particles');
+const particleContext = particleCanvas?.getContext('2d');
+
+if (particleCanvas && particleContext) {
+  const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let particlePoints = [];
+  let pointerPosition = null;
+  let animationFrame = 0;
+  let viewportWidth = window.innerWidth;
+  let viewportHeight = window.innerHeight;
+
+  function drawParticles(timestamp = 0) {
+    const context = particleContext;
+    context.clearRect(0, 0, viewportWidth, viewportHeight);
+    const elapsed = timestamp / 1000;
+    const interactionRadius = 112;
+
+    for (const point of particlePoints) {
+      let x = point.x + Math.sin(elapsed * 0.45 + point.phase) * 1.4;
+      let y = point.y + Math.cos(elapsed * 0.38 + point.phase) * 1.8;
+      let influence = 0;
+
+      if (pointerPosition && !motionQuery.matches) {
+        const deltaX = x - pointerPosition.x;
+        const deltaY = y - pointerPosition.y;
+        const distance = Math.hypot(deltaX, deltaY);
+        if (distance < interactionRadius && distance > 0) {
+          influence = 1 - distance / interactionRadius;
+          const push = influence * 18;
+          x += (deltaX / distance) * push;
+          y += (deltaY / distance) * push;
+        }
+      }
+
+      const radius = 1 + influence * 1.15;
+      const opacity = 0.22 + influence * 0.52;
+      const color = point.green ? `135,200,77,${opacity}` : `73,200,240,${opacity}`;
+      context.beginPath();
+      context.arc(x, y, radius, 0, Math.PI * 2);
+      context.fillStyle = `rgba(${color})`;
+      context.shadowBlur = influence * 9;
+      context.shadowColor = `rgba(${color})`;
+      context.fill();
+    }
+
+    context.shadowBlur = 0;
+    animationFrame = motionQuery.matches ? 0 : window.requestAnimationFrame(drawParticles);
+  }
+
+  function resizeParticleCanvas() {
+    viewportWidth = window.innerWidth;
+    viewportHeight = window.innerHeight;
+    const pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
+    particleCanvas.width = Math.round(viewportWidth * pixelRatio);
+    particleCanvas.height = Math.round(viewportHeight * pixelRatio);
+    particleContext.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
+
+    const spacing = viewportWidth < 600 ? 38 : 46;
+    particlePoints = [];
+    for (let y = spacing / 2; y < viewportHeight; y += spacing) {
+      for (let x = spacing / 2; x < viewportWidth; x += spacing) {
+        particlePoints.push({
+          x: x + (Math.random() - 0.5) * 12,
+          y: y + (Math.random() - 0.5) * 12,
+          phase: Math.random() * Math.PI * 2,
+          green: Math.random() < 0.18,
+        });
+      }
+    }
+
+    if (animationFrame) window.cancelAnimationFrame(animationFrame);
+    animationFrame = window.requestAnimationFrame(drawParticles);
+  }
+
+  window.addEventListener('pointermove', event => {
+    pointerPosition = { x: event.clientX, y: event.clientY };
+  }, { passive: true });
+  window.addEventListener('pointerleave', () => { pointerPosition = null; }, { passive: true });
+  window.addEventListener('resize', resizeParticleCanvas, { passive: true });
+  motionQuery.addEventListener('change', () => {
+    if (animationFrame) window.cancelAnimationFrame(animationFrame);
+    animationFrame = 0;
+    if (motionQuery.matches) drawParticles();
+    else animationFrame = window.requestAnimationFrame(drawParticles);
+  });
+  resizeParticleCanvas();
+}
+
 const filterButtons = [...document.querySelectorAll('[data-filter]')];
 const projects = [...document.querySelectorAll('.project[data-category]')];
 const emptyState = document.querySelector('.empty-state');

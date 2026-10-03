@@ -126,3 +126,36 @@
 .filter-button.is-active span{color:#ffffff}
 .project-link{display:inline-flex;align-items:center;min-height:44px;gap:7px}
 @media(prefers-reduced-motion:reduce){.case-notes summary{transition:none}}
+.growth-grid{fill:none;stroke:rgba(69,71,77,.13);stroke-width:1;stroke-dasharray:2 4}
+.growth-axis{fill:none;stroke:rgba(69,71,77,.34);stroke-width:1}
+.growth-bar{fill:#49c8f0;transform-box:fill-box;transform-origin:center bottom;animation:bar-rise 2.2s cubic-bezier(.35,0,.2,1) infinite alternate}
+.bar-two,.bar-five{fill:#73d7b0}
+.bar-three,.bar-six{fill:#b8e766}
+.bar-two{animation-delay:-.4s}.bar-three{animation-delay:-.8s}.bar-four{animation-delay:-1.2s}.bar-five{animation-delay:-1.6s}.bar-six{animation-delay:-2s}
+.growth-trend{fill:none;stroke:#121317;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:110;stroke-dashoffset:0;animation:trend-glint 3s ease-in-out infinite alternate}
+.growth-point{fill:#b8e766;stroke:#121317;stroke-width:1.5;transform-box:fill-box;transform-origin:center;animation:node-pulse 2.6s ease-in-out infinite}
+@keyframes bar-rise{to{opacity:1;transform:scaleY(1.12)}}
+@keyframes trend-glint{to{stroke-dashoffset:-12;opacity:.72}}
+.ambient-particles{position:fixed;inset:0;z-index:0;width:100%;height:100%;pointer-events:none;opacity:.56}
+main,.site-footer{position:relative;z-index:1}
+@media(prefers-reduced-motion:reduce){.growth-bar,.growth-trend,.growth-point{animation:none!important}.growth-bar{transform:none;opacity:1}}
+.hero-art{animation:panel-float 7s ease-in-out infinite}
+.status-dot{animation:availability-glow 2.8s ease-in-out infinite}
+.assistant-orbit{rotate:0deg;animation:orbit-drift 30s linear infinite}
+.assistant-orbit.orbit-two{animation-direction:reverse;animation-duration:38s}
+.assistant-core{animation:core-breathe 3.6s ease-in-out infinite}
+.chat-live{animation:availability-glow 2.4s ease-in-out infinite}
+.response-cursor{animation:response-throb 1.8s ease-in-out infinite alternate}
+.sheet-chart i{transform-origin:center bottom;animation:chart-breathe 2.8s ease-in-out infinite alternate}
+.sheet-chart i:nth-child(2){animation-delay:-.35s}.sheet-chart i:nth-child(3){animation-delay:-.7s}.sheet-chart i:nth-child(4){animation-delay:-1.05s}.sheet-chart i:nth-child(5){animation-delay:-1.4s}.sheet-chart i:nth-child(6){animation-delay:-1.75s}.sheet-chart i:nth-child(7){animation-delay:-2.1s}.sheet-chart i:nth-child(8){animation-delay:-2.45s}
+.about-monogram{translate:0 0;animation:monogram-hover 5s ease-in-out infinite}
+.contact-stamp{rotate:0deg;animation:stamp-sway 6s ease-in-out infinite alternate}
+@keyframes panel-float{50%{translate:0 -5px}}
+@keyframes availability-glow{50%{box-shadow:0 0 0 7px rgba(73,200,240,.12);opacity:.72}}
+@keyframes orbit-drift{to{rotate:360deg}}
+@keyframes core-breathe{50%{box-shadow:0 0 0 13px rgba(73,200,240,.12),0 0 28px rgba(184,243,107,.18)}}
+@keyframes response-throb{to{width:42px;opacity:.48}}
+@keyframes chart-breathe{to{scale:1 .78}}
+@keyframes monogram-hover{50%{translate:0 -4px}}
+@keyframes stamp-sway{to{rotate:-8deg}}
+@media(prefers-reduced-motion:reduce){.hero-art,.status-dot,.assistant-orbit,.assistant-core,.chat-live,.response-cursor,.sheet-chart i,.about-monogram,.contact-stamp{animation:none!important;translate:none!important;rotate:none!important;scale:none!important}}

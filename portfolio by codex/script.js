@@ -42,3 +42,26 @@ navigation.addEventListener('click', event => {
 });
 
 document.querySelector('#year').textContent = String(new Date().getFullYear());
+
+const typingText = document.querySelector('.typing-visual');
+const textToType = typingText.dataset.text;
+
+if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  typingText.textContent = textToType;
+  typingText.classList.add('is-complete');
+} else {
+  typingText.textContent = '';
+  let characterIndex = 0;
+
+  function typeNextCharacter() {
+    if (characterIndex >= textToType.length) {
+      typingText.classList.add('is-complete');
+      return;
+    }
+    typingText.textContent += textToType[characterIndex];
+    characterIndex += 1;
+    window.setTimeout(typeNextCharacter, 65);
+  }
+
+  window.setTimeout(typeNextCharacter, 280);
+}

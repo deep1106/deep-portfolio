@@ -17,3 +17,55 @@
 @media(max-width:680px){.availability,.hero-coordinate,.about-coordinate{font-size:10px}.contact-bottom,.site-footer{font-size:10px}}
 .hero-coordinate span,.window-bar,.flow-block,.flow-foot,.chat-head,.chat-avatar,.chat-compose,.sheet-row span:first-child,.step-glyph{color:#5f6058}
 .contact-bottom{color:#c4c1b7}
+
+:root{--paper:#ffffff;--paper-raised:#ffffff;--paper-deep:#ffffff;--ink:#121317;--ink-soft:#45474d;--muted:#45474d;--line:rgba(69,71,77,.22);--accent:#121317;--accent-dark:#45474d;--olive:#45474d;--display:'Google Sans Flex','Google Symbols',Arial,sans-serif;--body:'Google Sans Flex','Google Symbols',Arial,sans-serif;--mono:'Google Sans Flex','Google Symbols',Arial,sans-serif}
+::selection{background:#45474d;color:#ffffff}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.typing-visual::after{content:"";display:inline-block;height:.82em;margin-left:.1em;border-right:2px solid var(--ink);vertical-align:-.06em;animation:typing-caret .8s steps(2,end) infinite}
+.typing-visual.is-complete::after{opacity:0}
+@keyframes typing-caret{50%{opacity:0}}
+.site-nav>a:hover,.about-links a:hover,.text-link:hover,.project-link:hover,.back-top:hover{color:var(--accent-dark)}
+.site-nav .nav-contact:hover{background:var(--accent-dark);border-color:var(--accent-dark);color:#ffffff}
+.button-dark:hover,.filter-button.is-active{background:var(--accent-dark);color:#ffffff}
+.button-paper:hover{background:#45474d;color:#ffffff}
+.project-visual{background:rgba(69,71,77,.06);transition:background-color .24s ease,border-color .24s ease}
+.project:hover .project-visual{background:rgba(69,71,77,.12)}
+.hero-art{border-color:var(--line);box-shadow:0 22px 50px rgba(18,19,23,.1)}
+.headline-mark::after{background:rgba(69,71,77,.17)}
+.approach{background:rgba(69,71,77,.055);border-color:var(--line)}
+.approach-steps li,.approach-steps li:first-child{border-color:var(--line)}
+.approach-steps p,.project-content>p,.compact-content>p,.about-copy>p,.section-aside{color:var(--ink-soft)}
+.project-tags span,.compact-link,.filter-button:hover{border-color:var(--line)}
+.project-tags span,.project-meta,.visual-stamp,.art-topline,.art-caption,.section-index,.availability,.about-coordinate,.hero-coordinate,.contact-bottom,.step-marker{color:var(--ink-soft)}
+.visual-window,.data-sheet,.chat-window{background:#ffffff;border-color:var(--line)}
+.window-bar,.flow-foot,.chat-head,.chat-compose,.data-sheet .sheet-row,.project-filters{border-color:var(--line)}
+.window-bar,.flow-foot,.chat-head,.chat-avatar,.chat-compose,.sheet-row span:first-child,.flow-block,.step-glyph,.hero-coordinate span{color:var(--ink-soft)}
+.flow-block,.flow-accent,.orbit-tag,.chat-prompt,.node-observe,.node-improve,.map-card{background:rgba(69,71,77,.07)}
+.flow-accent{color:var(--ink)}
+.system-map defs pattern path{stroke:rgba(69,71,77,.14)}
+.system-map marker path{fill:var(--ink)}
+.map-card{fill:rgba(69,71,77,.07);stroke:rgba(69,71,77,.35)}
+.map-card-line{stroke:rgba(69,71,77,.5)}
+.map-node,.node-live{stroke:var(--ink-soft)}
+.map-node-dot,.map-check{fill:var(--ink)}
+.map-check{stroke:var(--ink)}
+.map-route{stroke:var(--ink-soft)}
+.map-label,.map-small,.map-note{fill:var(--ink-soft)}
+.assistant-orbit{border-color:rgba(69,71,77,.55)}
+.orbit-two{border-color:rgba(69,71,77,.32)}
+.assistant-core,.send-arrow{background:var(--ink);color:#ffffff}
+.flow-state,.chat-live{color:var(--ink-soft);background:var(--ink-soft)}
+.sheet-chart i,.sheet-chart i:nth-child(3n){background:var(--ink-soft)}
+.contact{background:var(--ink);color:#ffffff}
+.contact::before{border-color:rgba(255,255,255,.12);box-shadow:0 0 0 45px rgba(255,255,255,.035),0 0 0 90px rgba(255,255,255,.02)}
+.contact .section-index,.contact h2 span,.contact-side>a{color:#ffffff}
+.contact-side p,.contact-bottom{color:rgba(255,255,255,.72)}
+.contact-stamp{border-color:#ffffff;color:#ffffff}
+.site-footer{color:var(--ink-soft)}
+.status-dot,.window-bar i{background:var(--ink-soft);box-shadow:0 0 0 4px rgba(69,71,77,.12)}
+.node-observe,.node-improve{fill:rgba(69,71,77,.07)}
+.flow-connector{border-color:var(--ink-soft)}
+.flow-connector::after{border-left-color:var(--ink-soft)}
+.sheet-row{color:var(--ink-soft)}
+.assistant-core{box-shadow:0 0 0 9px rgba(18,19,23,.06)}
+@media(prefers-reduced-motion:reduce){.typing-visual::after{animation:none}.typing-visual.is-complete::after{display:none}}

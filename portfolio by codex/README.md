@@ -19,3 +19,4 @@ Open `index.html` directly, or serve this directory from a local static server. 
 - `script.js` — project filters and mobile navigation
 - `favicon.svg`, `og-image.svg` — brand assets
 - `robots.txt`, `sitemap.xml` — crawler discovery
+- `llms.txt` — concise machine-readable site guide

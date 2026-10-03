@@ -1,0 +1,20 @@
+# Deep Bhavsar
+
+> Portfolio of Deep Bhavsar, an AI automation engineer focused on forward-deployed engineering, workflow automation, and applied AI.
+
+## About
+
+Deep Bhavsar builds practical software around real operational problems, from understanding a workflow through integration, launch, and handoff.
+
+## Selected work
+
+- Shayona Store: production catalog and document workflows built with self-hosted n8n, Google Drive, and Google Sheets for a real retail operation. Workflow exports and connected account identifiers are private.
+- Desktop assistant: voice-enabled desktop actions and task automation.
+- Chat application: streamed model responses, backend APIs, and persistent conversation history.
+- Data science learning repository: hands-on projects in data cleaning, analysis, visualization, and predictive modeling.
+
+## Contact
+
+- Portfolio: https://deep-bhavsar-portfolio.pages.dev/
+- LinkedIn: https://www.linkedin.com/in/deep-bhavsar-aaba3927a/
+- GitHub: https://github.com/deep1106

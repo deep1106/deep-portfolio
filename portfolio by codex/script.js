@@ -65,3 +65,21 @@ if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
 
   window.setTimeout(typeNextCharacter, 280);
 }
+
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+if ('IntersectionObserver' in window && !prefersReducedMotion) {
+  const revealItems = document.querySelectorAll('.work .section-heading, .project, .approach-heading, .approach-steps li, .about-layout, .contact-intro, .contact-option');
+  const revealObserver = new IntersectionObserver((entries, observer) => {
+    for (const entry of entries) {
+      if (!entry.isIntersecting) continue;
+      entry.target.classList.add('is-visible');
+      observer.unobserve(entry.target);
+    }
+  }, { threshold: 0.14, rootMargin: '0px 0px -36px 0px' });
+
+  for (const item of revealItems) {
+    item.classList.add('reveal-on-view');
+    revealObserver.observe(item);
+  }
+}

@@ -10,7 +10,7 @@ Open `index.html` directly, or serve this directory from a local static server. 
 
 - Replace the canonical URL and Open Graph URL in `index.html` and sitemap/robots entries if the site is published at a different domain.
 - Publish the folder contents at the site root so the canonical URL, sitemap, robots file, and social image resolve correctly.
-- Link individual Shayona workflow cards to public workflow repositories when those URLs are ready.
+- Keep Shayona workflow exports and connected account identifiers private. The case study links to the public storefront instead.
 
 ## Files
 

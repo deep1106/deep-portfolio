@@ -8,6 +8,8 @@ Visit: [https://deep-bhavsar-portfolio.pages.dev](https://deep-bhavsar-portfolio
 
 ## 📁 Repository Structure
 
+The current portfolio redesign lives in [`portfolio by codex/`](portfolio%20by%20codex/). Cloudflare Pages deploys that folder from `main` after the redesign is merged.
+
 ```
 ├── public/
 │   ├── index.html          # Main portfolio page

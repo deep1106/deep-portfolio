@@ -31,12 +31,42 @@ export async function onRequestPost(context) {
       });
     }
 
+    // 🛡️ Security enhancement: Validate input types and lengths
+    if (typeof name !== 'string' || typeof email !== 'string' || typeof subject !== 'string' || typeof message !== 'string') {
+      return new Response(JSON.stringify({ error: 'Invalid input types' }), {
+        status: 400,
+        headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }
+      });
+    }
+
+    if (name.length > 100 || email.length > 254 || subject.length > 200 || message.length > 5000) {
+      return new Response(JSON.stringify({ error: 'Input exceeds maximum allowed length' }), {
+        status: 400,
+        headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }
+      });
+    }
+
+    // 🛡️ Security enhancement: Basic email format validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      return new Response(JSON.stringify({ error: 'Invalid email format' }), {
+        status: 400,
+        headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }
+      });
+    }
+
+    // 🛡️ Security enhancement: Sanitize inputs slightly before logging
+    const sanitizedName = name.replace(/[<>]/g, '');
+    const sanitizedEmail = email.replace(/[<>]/g, '');
+    const sanitizedSubject = subject.replace(/[<>]/g, '');
+    const sanitizedMessage = message.replace(/[<>]/g, '');
+
     // Log contact submission
     const contactEntry = {
-      name,
-      email,
-      subject,
-      message,
+      name: sanitizedName,
+      email: sanitizedEmail,
+      subject: sanitizedSubject,
+      message: sanitizedMessage,
       timestamp: new Date().toISOString(),
       ip: context.request.headers.get('CF-Connecting-IP') || 'unknown'
     };

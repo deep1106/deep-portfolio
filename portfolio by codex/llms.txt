@@ -8,13 +8,13 @@ Deep Bhavsar builds practical software around real operational problems, from un
 
 ## Selected work
 
-- Shayona Store: production catalog and document workflows built with self-hosted n8n, Google Drive, and Google Sheets for a real retail operation. Workflow exports and connected account identifiers are private.
-- Desktop assistant: voice-enabled desktop actions and task automation.
-- Chat application: streamed model responses, backend APIs, and persistent conversation history.
-- Data science learning repository: hands-on projects in data cleaning, analysis, visualization, and predictive modeling.
+- [Shayona Store](https://shayonastore.com/): production catalog and document workflows built with self-hosted n8n, Google Drive, and Google Sheets for a real retail operation. Workflow exports and connected account identifiers are private.
+- [Desktop assistant](https://github.com/deep1106/desktot-assistant): voice-enabled desktop actions and task automation.
+- [Chat application](https://github.com/deep1106/ChatGPT-Clone): streamed model responses, backend APIs, and persistent conversation history.
+- [Data science learning repository](https://github.com/deep1106/Python-For-Data-science-MOC-GVP): hands-on projects in data cleaning, analysis, visualization, and predictive modeling.
 
 ## Contact
 
-- Portfolio: https://deep-bhavsar-portfolio.pages.dev/
-- LinkedIn: https://www.linkedin.com/in/deep-bhavsar-aaba3927a/
-- GitHub: https://github.com/deep1106
+- [Portfolio](https://deep-bhavsar-portfolio.pages.dev/)
+- [LinkedIn](https://www.linkedin.com/in/deep-bhavsar-aaba3927a/)
+- [GitHub](https://github.com/deep1106)
